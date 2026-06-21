@@ -1,0 +1,213 @@
+/* ---------------------------------------------------------------
+   Argho Dey — academic homepage
+   Clean, minimal, content-first. Single accent, generous whitespace.
+   --------------------------------------------------------------- */
+
+:root {
+  --ink:        #1a1a1a;
+  --ink-soft:   #4a4a4a;
+  --ink-faint:  #8a8a8a;
+  --rule:       #e6e3dc;
+  --paper:      #fbfaf7;
+  --accent:     #7c4a2d;   /* warm sienna — used sparingly */
+  --accent-dim: #a87a5f;
+  --maxw:       740px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Charter", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 3rem 1.4rem 4rem;
+}
+
+/* ---- Masthead ---- */
+header.masthead { margin-bottom: 2.2rem; }
+
+.name {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.15rem;
+  line-height: 1.1;
+}
+.name a { color: var(--ink); text-decoration: none; }
+
+.tagline {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.92rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+  margin: 0 0 1.1rem;
+}
+
+/* ---- Navigation ---- */
+nav.site-nav {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.7rem 0;
+  display: flex;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+}
+nav.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  position: relative;
+}
+nav.site-nav a:hover { color: var(--accent); }
+nav.site-nav a.active { color: var(--accent); }
+nav.site-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -0.74rem;
+  height: 2px;
+  background: var(--accent);
+}
+
+/* ---- Sections ---- */
+main { margin-top: 2.4rem; }
+
+h2.section {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-weight: 700;
+  margin: 2.6rem 0 1rem;
+}
+
+h2.section:first-of-type { margin-top: 0; }
+
+p { margin: 0 0 1.1rem; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { border-bottom-color: var(--accent); }
+
+/* ---- Intro flex (photo + text) ---- */
+.intro { display: flex; gap: 1.8rem; align-items: flex-start; }
+.intro .photo {
+  flex: 0 0 150px;
+  width: 150px; height: 150px;
+  border-radius: 4px;
+  object-fit: cover;
+  background: #ece8e0;
+  border: 1px solid var(--rule);
+}
+.intro .photo-fallback {
+  flex: 0 0 150px;
+  width: 150px; height: 150px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #ece8e0, #ddd6c9);
+  display: flex; align-items: center; justify-content: center;
+  font-family: -apple-system, sans-serif;
+  font-size: 2.6rem; font-weight: 600; color: var(--accent-dim);
+  border: 1px solid var(--rule);
+}
+.intro .bio { flex: 1; min-width: 0; }
+.intro .bio p:last-child { margin-bottom: 0; }
+
+/* ---- Contact / link rows ---- */
+.links {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.9rem;
+  list-style: none;
+  padding: 0; margin: 0.3rem 0 0;
+}
+.links li { margin: 0.3rem 0; display: flex; gap: 0.6rem; }
+.links .label { color: var(--ink-faint); flex: 0 0 84px; }
+.links a { border-bottom: none; }
+.links a:hover { border-bottom: 1px solid var(--accent); }
+
+/* ---- Interest list ---- */
+ul.tidy { list-style: none; padding: 0; margin: 0 0 1.1rem; }
+ul.tidy li {
+  padding: 0.35rem 0 0.35rem 1.2rem;
+  position: relative;
+  border-bottom: 1px solid var(--rule);
+}
+ul.tidy li:last-child { border-bottom: none; }
+ul.tidy li::before {
+  content: "›";
+  position: absolute; left: 0;
+  color: var(--accent-dim);
+}
+
+/* ---- Publications ---- */
+.pub {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.pub:last-child { border-bottom: none; }
+.pub .title { font-weight: 600; line-height: 1.4; display: block; margin-bottom: 0.2rem; }
+.pub .authors {
+  font-size: 0.95rem; color: var(--ink-soft); margin: 0.1rem 0;
+}
+.pub .authors .me { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent-dim); text-underline-offset: 2px; }
+.pub .venue {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.82rem; color: var(--ink-faint); font-style: normal;
+}
+.pub .badge {
+  display: inline-block;
+  font-family: -apple-system, sans-serif;
+  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 0.12rem 0.5rem; border-radius: 3px; margin-left: 0.4rem;
+  vertical-align: middle;
+}
+.badge.pub-acc { background: #e8efe6; color: #3c6b3c; }
+.badge.pub-rev { background: #f4ece0; color: #9a6a2d; }
+.pub .extra {
+  font-family: -apple-system, sans-serif;
+  font-size: 0.82rem; margin-top: 0.35rem;
+}
+.pub .extra a { border-bottom: none; margin-right: 0.9rem; }
+.pub .extra a:hover { border-bottom: 1px solid var(--accent); }
+
+.yeargroup {
+  font-family: -apple-system, sans-serif;
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-faint); margin: 2rem 0 0.2rem;
+}
+
+/* ---- Footer ---- */
+footer {
+  margin-top: 3rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+  font-family: -apple-system, sans-serif;
+  font-size: 0.8rem; color: var(--ink-faint);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;
+}
+footer a { color: var(--ink-faint); border-bottom: none; }
+footer a:hover { color: var(--accent); }
+
+/* ---- Responsive ---- */
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .wrap { padding: 2rem 1.1rem 3rem; }
+  .name { font-size: 1.7rem; }
+  .intro { flex-direction: column; gap: 1.1rem; }
+  .intro .photo, .intro .photo-fallback { flex-basis: 120px; width: 120px; height: 120px; }
+  nav.site-nav { gap: 1.1rem; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a, nav.site-nav a { transition: color 0.15s ease, border-color 0.15s ease; }
+}

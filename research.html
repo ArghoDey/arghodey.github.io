@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research · Argho Dey</title>
+<meta name="description" content="Research interests and projects of Argho Dey — BEV perception, camera-radar fusion, autonomous driving.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <h1 class="name"><a href="index.html">Argho Dey</a></h1>
+    <p class="tagline">Master's Student · Computer Science · Chongqing University</p>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="research.html" class="active">Research</a>
+      <a href="publications.html">Publications</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="section">Overview</h2>
+    <p>I build perception and decision systems for autonomous driving that stay
+    accurate <em>and</em> affordable to run. A recurring theme in my work is closing
+    the gap between state-of-the-art BEV models and the modest GPUs available in
+    practice — through denoising attention, efficient multimodal fusion, and
+    memory-guided temporal reasoning.</p>
+
+    <h2 class="section">Interests</h2>
+    <ul class="tidy">
+      <li>Bird's-Eye-View (BEV) scene segmentation &amp; perception</li>
+      <li>Multimodal sensor fusion (camera + radar)</li>
+      <li>End-to-end autonomous driving</li>
+      <li>Attention mechanisms &amp; efficient deep learning</li>
+      <li>Computer vision and medical image analysis</li>
+    </ul>
+
+    <h2 class="section">Selected Projects</h2>
+
+    <div class="pub">
+      <span class="title">UniFusion — Unified De-Noise Attention &amp; Memory-Guided BEV Framework <span class="badge pub-rev">Ongoing</span></span>
+      <p class="authors">Master's thesis · Supervisor: Prof. Yunfei Yin</p>
+      <p>A unified BEV framework that integrates multimodal perception, temporal
+      reasoning, and planning for efficient and reliable autonomous driving. It fuses
+      camera and radar with lightweight attention and memory mechanisms to deliver
+      robust scene understanding and decision-making on resource-constrained hardware,
+      directly targeting sensor noise, spatial misalignment, computational cost, and
+      temporal instability. Evaluated on the nuScenes benchmark.</p>
+    </div>
+
+    <div class="pub">
+      <span class="title">ECABEV — Enhanced Channel Attention BEV <span class="badge pub-acc">Published</span></span>
+      <p class="authors">First author · <em>Computers, Materials &amp; Continua</em></p>
+      <p>A denoise-enhanced channel attention mechanism that fuses camera and radar
+      under tight GPU-memory budgets. Using global average and max pooling to filter
+      noise while keeping discriminative features, plus a bilinear-interpolation layer
+      normalization and a scalable cross-entropy loss, ECABEV reaches state-of-the-art
+      IoU with a lightweight ViT-B/14 backbone at 224×224 resolution.
+      <span class="extra"><a href="https://github.com/YYF-CQU/ECABEV" target="_blank" rel="noopener">Code ↗</a></span></p>
+    </div>
+
+    <div class="pub">
+      <span class="title">TA-SMAD — Temporal-Aware Semantic Memory-Gated Framework <span class="badge pub-rev">Under review</span></span>
+      <p class="authors">First author · <em>IEEE TNNLS</em></p>
+      <p>A semantically guided, memory-aware BEV framework that unifies perception,
+      temporal reasoning, and planning into a single representation, rather than
+      treating each stage in isolation — for robust end-to-end autonomous driving.</p>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Argho Dey</span>
+    <span><a href="publications.html">See all publications →</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
