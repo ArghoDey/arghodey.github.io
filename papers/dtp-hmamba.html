@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DTP-HMamba: Dynamic Token-Pruned Hierarchical Mamba Fusion for Incomplete-Modality Brain Tumor Segmentation &middot; Argho Dey</title>
+<meta name="description" content="Complete multimodal MRI is not always available in practice, because of cost, scan time, patient condition, imaging artefacts, protocol differences or contraindications to contrast">
+<meta name="author" content="Argho Dey">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-about">
+    <img src="../argho1.jpg" alt="Argho Dey">
+    <h1><a href="../index.html">Argho Dey</a></h1>
+    <p class="lead">Algorithm engineer at Beijing Lingyu Intelligent Technology and incoming PhD student, Department of Automation, Tsinghua University.</p>
+  </div>
+
+  <nav class="sidebar-nav" aria-label="Main navigation">
+      <a class="sidebar-nav-item" href="../index.html">Home</a>
+      <a class="sidebar-nav-item active" href="../publications.html" aria-current="page">Publications</a>
+      <a class="sidebar-nav-item" href="../research.html">Research</a>
+      <a class="sidebar-nav-item" href="../teaching.html">Teaching</a>
+      <a class="sidebar-nav-item" href="../cv.html">CV</a>
+  </nav>
+
+  <p class="sidebar-bottom">
+    <a href="mailto:argho@dexteleop.com">argho@dexteleop.com</a><br>
+    <a href="https://scholar.google.com/citations?user=LHSCeekAAAAJ&hl=en">Google Scholar</a> &middot; <a href="https://github.com/ArghoDey">GitHub</a> &middot;
+    <a href="https://www.linkedin.com/in/argho-dey">LinkedIn</a><br>
+    &copy; 2026 Argho Dey
+  </p>
+</div>
+
+<div class="content">
+<h1 class="title">DTP-HMamba: Dynamic Token-Pruned Hierarchical Mamba Fusion for Incomplete-Modality Brain Tumor Segmentation</h1>
+<p class="paper-meta">Swachha Ray, Yunfei Yin, <b>Argho Dey</b>, Zheng Yuan and Hongyu Liu</p>
+<p class="paper-meta"><i>Engineering Applications of Artificial Intelligence</i>, under review.</p>
+
+<hr>
+
+<h2>Abstract</h2>
+<p>Complete multimodal MRI is not always available in practice, because of cost, scan time, patient condition, imaging artefacts, protocol differences or contraindications to contrast agents, and many incomplete-modality methods additionally operate on dense 3D feature representations that waste computation on background and normal tissue. We propose DTP-HMamba, a dynamic token-pruned hierarchical Mamba fusion framework. A tumour-aware token scoring mechanism selects informative tumour-related tokens before multimodal fusion; the selected tokens are integrated through a token-pruned interleaved Mamba fusion block that enables cross-modality interaction under arbitrary missing-modality conditions; and a Scale-Mamba module models dependencies across hierarchical feature levels, allowing boundary-level information and high-level semantics to interact adaptively. On BraTS 2023, DTP-HMamba obtains Dice scores of 91.0%, 86.4% and 75.5% for whole tumour, tumour core and enhancing tumour, with consistent gains in segmentation performance and boundary precision.</p>
+
+</div>
+
+</body>
+</html>

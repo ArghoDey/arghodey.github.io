@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enhanced BEV Scene Segmentation: De-Noise Channel Attention for Resource-Constrained Environments &middot; Argho Dey</title>
+<meta name="description" content="Bird&#x27;s-Eye-View segmentation fuses camera and radar into a single scene representation, but heavy attention blocks make it hard to run where GPU memory is scarce. We introduce ECAB">
+<meta name="author" content="Argho Dey">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-about">
+    <img src="../argho1.jpg" alt="Argho Dey">
+    <h1><a href="../index.html">Argho Dey</a></h1>
+    <p class="lead">Algorithm engineer at Beijing Lingyu Intelligent Technology and incoming PhD student, Department of Automation, Tsinghua University.</p>
+  </div>
+
+  <nav class="sidebar-nav" aria-label="Main navigation">
+      <a class="sidebar-nav-item" href="../index.html">Home</a>
+      <a class="sidebar-nav-item active" href="../publications.html" aria-current="page">Publications</a>
+      <a class="sidebar-nav-item" href="../research.html">Research</a>
+      <a class="sidebar-nav-item" href="../teaching.html">Teaching</a>
+      <a class="sidebar-nav-item" href="../cv.html">CV</a>
+  </nav>
+
+  <p class="sidebar-bottom">
+    <a href="mailto:argho@dexteleop.com">argho@dexteleop.com</a><br>
+    <a href="https://scholar.google.com/citations?user=LHSCeekAAAAJ&hl=en">Google Scholar</a> &middot; <a href="https://github.com/ArghoDey">GitHub</a> &middot;
+    <a href="https://www.linkedin.com/in/argho-dey">LinkedIn</a><br>
+    &copy; 2026 Argho Dey
+  </p>
+</div>
+
+<div class="content">
+<h1 class="title">Enhanced BEV Scene Segmentation: De-Noise Channel Attention for Resource-Constrained Environments</h1>
+<p class="paper-meta"><b>Argho Dey</b>, Yunfei Yin, Zheng Yuan, Zhiwen Zeng, Xianjian Bao and Md Minhazul Islam</p>
+<p class="paper-meta"><i>Computers, Materials &amp; Continua</i>, 2025.</p>
+<p class="paper-links"><a href="https://doi.org/10.32604/cmc.2025.074122">Paper</a><a href="https://github.com/YYF-CQU/ECABEV">Code</a></p>
+
+<hr>
+
+<h2>Abstract</h2>
+<p>Bird's-Eye-View segmentation fuses camera and radar into a single scene representation, but heavy attention blocks make it hard to run where GPU memory is scarce. We introduce ECABEV, which replaces BEVCar's deformable attention with a de-noise enhanced channel attention mechanism, a scalable cross-entropy loss and a bilinear-interpolation layer-normalisation (BLN) design. De-noise channel attention combines global average and max pooling to emphasise informative channels while filtering noisy ones, improving feature purity and cross-modal consistency; the scalable loss dynamically prioritises rare classes according to class frequency and complexity; and BLN preserves spatial coherence across modalities while reducing computational overhead. ECABEV reaches 39.96 IoU on nuScenes with a ViT-B/14 backbone at 224x224, improving on BEVCar in both accuracy and efficiency across diverse environmental conditions, including rain, night and motion-blurred scenes.</p>
+
+</div>
+
+</body>
+</html>
