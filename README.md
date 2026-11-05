@@ -17,7 +17,24 @@ papers/             One page per paper: authors, venue, links, abstract
 figures/            Architecture diagrams used on the research page
 style.css           Single stylesheet for every page
 argho1.jpg          Portrait used in the sidebar
+sitemap.xml         Every page, for search engines
+robots.txt          Allows crawlers and points at the sitemap
 ```
+
+## Search engines
+
+Every page carries a title, a description, a canonical URL, Open Graph/Twitter tags, and JSON-LD
+(`Person` on the home page, `ScholarlyArticle` with the DOI on each paper page). `sitemap.xml` lists
+all 18 URLs and `robots.txt` points at it, so the site only needs to be submitted once in each search
+console:
+
+- Google Search Console: add `https://arghodey.github.io/`, verify with the HTML file it gives you
+  (drop it in this folder), then submit `sitemap.xml`.
+- Bing Webmaster Tools (also feeds DuckDuckGo): import from Google, submit `sitemap.xml`.
+- Baidu 站长平台, for searches inside China: add the site, verify, submit `sitemap.xml`.
+
+If a custom domain is added later, the canonical and `og:url` values (currently absolute and pointing
+at `https://arghodey.github.io/`) have to be updated to match.
 
 Every paper listed on `publications.html` links to its own page under `papers/`, which carries the
 full author list, the venue and status, links to the paper and code where they exist, and the
