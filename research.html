@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research &middot; Argho Dey</title>
+<meta name="description" content="Research of Argho Dey: BEV perception and planning, multi-sensor calibration, visual-inertial localization.">
+<meta name="author" content="Argho Dey">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-about">
+    <img src="argho1.jpg" alt="Argho Dey">
+    <h1><a href="index.html">Argho Dey</a></h1>
+    <p class="lead">Algorithm engineer at Beijing Lingyu Intelligent Technology and incoming PhD student, Department of Automation, Tsinghua University.</p>
+  </div>
+
+  <nav class="sidebar-nav" aria-label="Main navigation">
+      <a class="sidebar-nav-item" href="index.html">Home</a>
+      <a class="sidebar-nav-item" href="publications.html">Publications</a>
+      <a class="sidebar-nav-item active" href="research.html" aria-current="page">Research</a>
+      <a class="sidebar-nav-item" href="teaching.html">Teaching</a>
+      <a class="sidebar-nav-item" href="cv.html">CV</a>
+  </nav>
+
+  <p class="sidebar-bottom">
+    <a href="mailto:argho@dexteleop.com">argho@dexteleop.com</a><br>
+    <a href="https://scholar.google.com/citations?user=LHSCeekAAAAJ&hl=en">Google Scholar</a> &middot; <a href="https://github.com/ArghoDey">GitHub</a> &middot;
+    <a href="https://www.linkedin.com/in/argho-dey">LinkedIn</a><br>
+    &copy; 2026 Argho Dey
+  </p>
+</div>
+
+<div class="content">
+<h1 class="title">Research</h1>
+<p class="subtitle">Perception, calibration and state estimation for embodied robots</p>
+
+<p>Making robot perception <i>measurable</i> rather than merely accurate &mdash; through multi-sensor
+fusion, calibration and state estimation for machines that have to localize, map and avoid obstacles in
+real environments &mdash; is the thread that runs through my work. As an incoming PhD student at the
+Department of Automation, Tsinghua University, I keep returning to two questions that have turned out to
+be the same one: how much of a representation can be trusted, and where does the error come from? In
+autonomous driving I build Bird's-Eye-View perception that stays accurate on noisy sensors and small
+compute budgets, treating two kinds of reliability separately &mdash; how clean a measurement is, and how
+much history to trust &mdash; while in industry I work on vision&ndash;inertial localization, where
+absolute and relative trajectory error, tracking success rate and resource utilization let me measure
+reliability instead of claiming it. Drifting calibration, accumulated localization error and depth that
+fails on glass or thin structures are, in the end, one problem showing up at three points of a single
+pipeline.</p>
+
+<h2>BEV Perception and Planning</h2>
+<p>My track record is in Bird's-Eye-View perception for autonomous driving: building unified detection,
+segmentation and planning on a shared representation, and asking at each stage how much of that
+representation can be trusted.</p>
+
+<figure>
+  <img src="figures/ecabev-architecture.jpg" alt="ECABEV architecture">
+  <figcaption><b>ECABEV.</b> Two-way sensor encoder, BEV image-plane lifting, de-noise enhanced channel
+  attention and a scalable-loss segmentation head. 39.96 IoU on nuScenes with a ViT-B/14 backbone at
+  224&times;224 &mdash;
+  <a href="papers/ecabev.html">paper</a>.</figcaption>
+</figure>
+
+<p><b>ECABEV</b> replaced BEVCar's heavy deformable attention with de-noise channel attention, a scalable
+cross-entropy loss and a bilinear interpolation layer-normalization design. De-noise channel attention
+combines global average and max pooling to emphasize informative channels while filtering noisy ones; the
+scalable loss dynamically prioritizes rare classes by frequency and complexity; BLN preserves spatial
+coherence across modalities while reducing overhead. The result was state-of-the-art accuracy under tight
+GPU-memory budgets, in rain, at night and on fuzzy inputs.</p>
+
+<figure>
+  <img src="figures/rct-ad-architecture.jpg" alt="RCT-AD architecture">
+  <figcaption><b>RCT-AD.</b> Reliable Context Awareness with a temporal memory bank, semantic and
+  motion-guided BEV refinement, a temporal trajectory planner, and unified multi-task optimization over
+  segmentation, detection, prediction, planning and mapping &mdash;
+  <a href="papers/rct-ad.html">paper</a>.</figcaption>
+</figure>
+
+<p><b>RCT-AD</b> asks the same reliability question over time rather than over channels: short-term
+sensory and long-term instance banks preserve high-quality BEV features and filter noisy inputs, a
+temporal trajectory planner uses recurrent attention to model long-horizon dependencies, and unified
+multi-task optimization ties detection, segmentation, prediction, planning and mapping together. On
+nuScenes it reaches 52.3 mIoU (R101, 512&times;1408) and 0.54 m average L2 displacement with a 0.06%
+average collision rate.</p>
+
+<p><b>T-GeoBEV</b> studies temporally consistent, geometry-aware panoramic BEV semantic mapping: explicit
+depth-based lift-splat-project replaces an implicit learned transform, a ConvGRU aggregates multi-frame
+BEV features, and a distortion-aware panoramic encoder injects spherical coordinate embeddings to mitigate
+equirectangular artefacts &mdash; so a single panoramic image yields a stable BEV map.</p>
+
+<p><b>RESAR-BEV</b>, a collaboration in which I am a co-author, advances beyond single-step end-to-end BEV
+segmentation with progressive residual-autoregressive refinement, reaching 54.0% mIoU over seven
+driving-scene classes at 14.6 FPS.</p>
+
+<h2>Evaluation and Deployment</h2>
+<p>Accuracy on a benchmark and safety in deployment are not the same measurement, so both have to be
+reported. In my current role I build automated evaluation for vision&ndash;inertial odometry: data
+loading, execution, trajectory alignment against ground truth, ATE and RPE, tracking success rate and
+resource utilization, together with the boundary cases that a single averaged number hides. For BEV work
+the equivalent is mIoU per class under rain, night and occlusion, and ablations that isolate which
+component is responsible for a gain.</p>
+
+<h2>Collaborative Work</h2>
+<p>Beyond autonomous driving I contribute to medical image analysis, remote sensing and quantum federated
+learning &mdash; projects that taught me to move between application domains without losing methodological
+discipline, and that share the same interest in reliability under degraded inputs.</p>
+<ul>
+  <li><b>Medical image analysis</b> &mdash; colonoscopy video polyp segmentation with quality-aware memory
+  and prototype alignment (<a href="papers/miccai-polyp.html">MICCAI 2026</a>); brain-tumour segmentation
+  under incomplete modalities with reliability-aware disentanglement
+  (<a href="papers/jbhi-brain.html">IEEE JBHI</a>) and token-pruned Mamba fusion
+  (<a href="papers/dtp-hmamba.html">EAAI</a>); language-guided segmentation with sparse text supervision
+  (<a href="papers/dsef.html">Pattern Recognition</a>); semi-supervised fracture-risk prediction
+  (<a href="papers/fracture.html">BSPC</a>); bidirectional pyramid polyp segmentation
+  (<a href="papers/bspc-polyp.html">BSPC</a>).</li>
+  <li><b>Remote sensing</b> &mdash; bi-temporal SAR flood segmentation as temporal state-transition
+  inference (<a href="papers/sar-flood.html">Information Sciences</a>); dual-stream
+  optical&ndash;topographic landslide segmentation
+  (<a href="papers/cmc-landslide.html">Computers, Materials &amp; Continua</a>).</li>
+  <li><b>Federated and quantum learning</b> &mdash; distribution-aware hybrid classical&ndash;quantum
+  federated learning for calibrated long-tail medical classification
+  (<a href="papers/daqhfl.html">World Wide Web</a>).</li>
+</ul>
+
+</div>
+
+</body>
+</html>
